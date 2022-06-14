@@ -1,0 +1,2 @@
+{"_key":"X","_id":"edges/X","_from":"V/A","_to":"V/B","Murks":"abc"}
+{"_key":"0:Y:1","_id":"edges/0:Y:1","_from":"V/0:B","_to":"V/1:A","Murks":"xyz"}
