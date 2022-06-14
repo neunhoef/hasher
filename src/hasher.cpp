@@ -137,7 +137,9 @@ int do_vertices(std::string const& outfile, std::string const& tablefile) {
         std::string_view key;
         std::string hash;
         std::string newKey;
+#if 0
         std::string_view id;
+#endif
         std::size_t pos;
         {
           VPackObjectBuilder ob(&outbuilder);
@@ -147,7 +149,10 @@ int do_vertices(std::string const& outfile, std::string const& tablefile) {
               newKey = hashkey(key);
               outbuilder.add(p.key.stringView(), VPackValue(newKey));
             } else if (p.key.stringView() == "_id") {
+#if 0
               id = p.value.stringView();
+#endif
+            } else if (p.key.stringView() == "_rev") {
             } else {
               outbuilder.add(p.key.stringView(), p.value);
             }
@@ -224,6 +229,7 @@ int do_edges(std::string const& outfile) {
               newval += hash;
               outbuilder.add(p.key.stringView(), VPackValue(newval));
 #endif
+            } else if (p.key.stringView() == "_rev") {
             } else {
               outbuilder.add(p.key.stringView(), p.value);
             }
